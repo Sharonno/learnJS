@@ -1,0 +1,85 @@
+@charset "utf-8";
+*{
+    font:normal 12px/2em '微软雅黑';
+    padding:0;
+    margin:0
+}
+
+ul,li{
+    list-style:none
+}
+a{
+    color:#09f;
+}
+/*容器*/
+#starSys{
+    width:400px;
+    border:1px solid #ccc;
+    padding:50px;
+    margin:100px auto
+}
+
+#starBox{
+    position:relative;
+    width:120px;
+    float:left
+}
+/**/
+#starSys .description{
+    clear:both;
+    padding:10px 0px
+}
+#starSys .star{
+    position:relative;
+    margin-left: 145px;
+    height:20px;
+    width:120px;
+    background:url(../images/jb51.png) repeat-x;
+    cursor:pointer
+}
+#starSys .star li{
+    float:left;
+    padding:0px;
+    margin:0px
+}
+#starSys .star li a{
+    position:absolute;
+    display:block;
+    width:24px;
+    height:20px;
+    overflow:hidden;
+    text-indent:-9999px; /*缩进至看不见的地方*/
+    z-index:5
+}
+#starSys .star li a:hover{
+    background:url(../images/jb51.png) 0 -25px repeat-x;
+    z-index:3;
+    left:0
+}
+/*以24px递增，星星显示的范围*/
+#starSys .star a.one-star{
+    left:0
+}
+#starSys .star a.one-star:hover{
+    width:24px
+}
+#starSys .star a.two-stars{
+    left:24px
+}
+#starSys .star a.two-stars:hover{
+    width:48px
+}
+#starSys .star a.three-stars{left:48px}
+#starSys .star a.three-stars:hover{width:72px}
+#starSys .star a.four-stars{left:72px}
+#starSys .star a.four-stars:hover{width:96px}
+#starSys .star a.five-stars{left:96px}
+#starSys .star a.five-stars:hover{width:120px}
+#starSys .current-rating{
+    background:url(../images/jb51.png) 0 -25px repeat-x;
+    position:absolute;
+    height:20px;
+    z-index:1;
+    top:0;
+    left:0
+}
