@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load url from future %}
+<html lang="en">
+
+
+  <head>
+    <!--link rel="stylesheet" href="style.css" /-->
+    <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+    <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+
+
+    <style type="text/css">
+    body{color:#efd;background:#453;padding:0 5em;margin:0,height:100%;}
+    h1{padding:2em 1em;background:#675}
+    h3{color:#bf8;border-top:0px ;margin:0;padding:0em -2em;}
+    p{margin:1em 0}
+    li.sansserif{font-family:Arial,Helvetica,sans-serif;font-size: 20px}
+    a{color:#00c}a:active{color:#f60}
+    </style>
+
+    <script type="text/javascript">
+<!--
+
+        window.onload=window.onresize=function(){
+
+        if(document.getElementById("sidebar").clientHeight<document.getElementById("content").clientHeight){
+
+                    document.getElementById("sidebar").style.height=document.getElementById("content").offsetHeight+"px";
+            }
+
+        else{
+
+          document.getElementById("content").style.height=document.getElementById("sidebar").offsetHeight+"px";
+
+            }
+        }
+
+-->
+</script>
+
+    <link rel="Stylesheet" type="text/css" href="{% static "css/loginDialog.css" %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static "css/base.css" %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.css" %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <title>{% block title %}My amazing site{% endblock %}</title>
+
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="header" >
+        <h1>Sharon's blog</h1>
+        <p>人在吃，秤在看</p>
+      </div>
+      <div id="sidebar" style="height:90%;width:10%;float:left;">
+        <ul class="nav nav-pills nav-stacked">
+            <li class='sansserif active'><a href="/article/home">Home</a></li>
+            <li class='sansserif'><a href="/article/login">Login</a></li>
+            <li class='sansserif'><a href="/article/regist">Regist</a></li>
+            <li class='sansserif'><a href="/article/list">Article</a></li>
+        </ul>
+      </div>
+
+      <div id="content" name="content" style="height:90%;width:90%;" >
+        {% block content %}{% endblock %}
+      </div>
+      <div id="footer" >
+        没吃饱只有一个烦恼，吃饱了就有无数个烦恼~>.<~
+        {% block footer %}{% endblock %}
+      </div>
+    </div>
+
+  </body>
+</html>

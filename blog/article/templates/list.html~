@@ -1,0 +1,45 @@
+{% extends 'base_site.html' %}
+{% load staticfiles %}
+{% block content %}
+<script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+<script src="{% static 'js/sliders.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+<div class="article">
+    <a href="{% url 'add'%}">Add A New Article</a>
+</div>
+    {% for contact in contacts %}
+<div class="article">
+    <ul>
+        <h3>TITLE：<a href="{% url 'view' %}?aid={{ contact.aid }}">{{ contact.title }}</a></h3>
+        <p>{{ contact.content|slice:":50 " }}</p>
+        <p class="autor">
+            <span class="lm f_l"><a href="/article/list">{{ contact.tags }}</a></span>
+            <span  id='time' class="dtime f_l">{{ contact.pub_date }}</span>
+            <span  class="viewnum f_r" >浏览（）</span>
+            <span class="pingl f_r"><a href="{% url 'view' %}?aid={{ contact.aid }}">评论</a>（）</span>
+        </p>
+    </ul>
+</div>
+
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if contacts.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+        </span>
+
+        {% if contacts.has_next %}
+            <a href="?page={{ contacts.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
+{% block footer %}
+
+{% endblock %}
+

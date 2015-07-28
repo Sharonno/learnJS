@@ -1,0 +1,129 @@
+{% extends 'base_site.html'%}
+{% load staticfiles %}
+{% block title %}Regist Regist Regist{% endblock %}
+{% block content%}
+<!--<a href="{%url 'regist'%}"></a>-->
+
+<a href="#" id="example">请您注册</a>
+<div id="LoginBox">
+    <div class="row1">
+    Hey,welcome to join us!<a href="javascript:void(0)" title="See u next time ~" class="close_btn" id="closeBtn">×</a>
+    </div>
+
+    <div>
+        <form action="" method = 'post'>
+            {% csrf_token %}
+
+            <div class="row" >
+                用户名: <span class="inputBox">{{ uf.username }}</span>
+                <a href="javascript:void(0)" title="提示" class="warning" id="warn">*</a>
+            </div>
+
+            <div class="row">
+                邮箱: <span class="inputBox">{{ uf.email }}</span>
+                <a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+            </div>
+
+            <div class="row">
+                密码: <span class="inputBox">{{ uf.password1 }}</span>
+                <a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+            </div>
+
+            <div class="row">
+                确认密码: <span class="inputBox">{{ uf.password2 }}</span>
+                <a href="javascript:void(0)" title="提示" class="warning" id="warn2">*</a>
+            </div>
+
+            <div class="">
+                <input type="submit" id="loginbtn" value = "注册" />
+            </div>
+        </form>
+      </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        $("#example").hover(
+            function () { $(this).stop().animate({ opacity: '1' }, 600);},
+            function () { $(this).stop().animate({ opacity: '0.6' }, 1000);}
+            ).on('click', function () {
+                  $("body").append("<div id='mask'></div>");
+                  $("#mask").addClass("mask").fadeIn("slow");
+                  $("#LoginBox").fadeIn("slow");
+                });
+
+        $(".inputBox:eq(0) input:eq(0)").attr("id", "txtName");
+        $(".inputBox:eq(0) input:eq(0)").attr("placeholder", "昵称");
+
+        $(".inputBox:eq(1) input:eq(0)").attr("id", "txtName");
+        $(".inputBox:eq(1) input:eq(0)").attr("placeholder", "邮箱");  
+
+        $(".inputBox:eq(2) input:eq(0)").attr("id", "txtPwd");
+        $(".inputBox:eq(2) input:eq(0)").attr("placeholder", "密码");
+        $(".inputBox:eq(3) input:eq(0)").attr("id", "txtPwd");
+        $(".inputBox:eq(3) input:eq(0)").attr("placeholder", "确认密码");  
+
+        $("#loginbtn").hover(
+            function () { $(this).stop().animate({ opacity: '1' }, 600);}, 
+            function () { $(this).stop().animate({ opacity: '0.8' }, 1000);
+            });
+    
+
+    $("#loginbtn").on('submit', function () {
+      var txtName = $("#txtName").val();
+      var txtPwd = $("#txtPwd").val();
+      if (txtName == "" || txtName == undefined || txtName == null) {
+        if (txtPwd == "" || txtPwd == undefined || txtPwd == null) {
+          $(".warning").css({ display: 'block' });
+        }
+        else {
+          $("#warn").css({ display: 'block' });
+          $("#warn2").css({ display: 'none' });
+        }
+      }
+      else {
+        if (txtPwd == "" || txtPwd == undefined || txtPwd == null) {
+          $("#warn").css({ display: 'none' });
+          $(".warn2").css({ display: 'block' });
+        }
+        else {
+          $(".warning").css({ display: 'none' });
+        }
+      }
+    });
+    
+    $("#txtName").on('blur', function () {
+      var txtName = $("#txtName").val();
+      if (txtName == "" || txtName == undefined || txtName == null) {
+        $("#warn").css({ display: 'block' });
+      }
+      else {
+        $("#warn").css({ display: 'none' });
+      }
+    });
+    $("#txtName").on('focus', function () {
+      $("#warn").css({ display: 'none' });
+    });
+    
+    $("#txtPwd").on('blur', function () {
+      var txtName = $("#txtPwd").val();
+      if (txtName == "" || txtName == undefined || txtName == null) {
+        $("#warn2").css({ display: 'block' });
+      }
+      else {
+        $("#warn2").css({ display: 'none' });
+      }
+    });
+    $("#txtPwd").on('focus', function () {
+      $("#warn2").css({ display: 'none' });
+    });
+    
+    $(".close_btn").hover(function () { $(this).css({ color: 'black' }) }, function () { $(this).css({ color: '#999' }) }).on('click', function () {
+      $("#LoginBox").fadeOut("fast");
+      $("#mask").css({ display: 'none' });
+    });
+  });
+  </script>       
+{% endblock %}
+

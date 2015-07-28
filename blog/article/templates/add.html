@@ -1,0 +1,59 @@
+
+{% extends 'base_site.html'%}
+
+{% block content %}
+{{ form.media }}
+<div class="span12" >
+<form action="{% url 'add' %}" method="post" role="form">
+{% csrf_token %}
+	<!-- <div class="form-group">
+		<lable for="title">Title</lable>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" name="title" placeholder="文章叫啥名啊">
+		</div>
+	</div>
+	<div class="form-group">
+		<lable for="content" class="col-sm-2 control-label">Content</lable>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" name="content" placeholder="文章讲的啥啊">
+		</div>
+	</div>
+	<div class="form-group">
+		<lable for="time" class="col-sm-2 control-label">Time</lable>
+		<div class="col-sm-10">
+			<input type="date" class="form-control" name="pub_date" placeholder="文章啥时候写的啊">
+		</div>
+	</div>
+	<div class="form-group">
+		<lable for="tag" class="col-sm-2 control-label">Tag</lable>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" name="tag" placeholder="文章属于哪类啊">
+		</div>
+	</div> -->
+
+<!--<p>Title：<input name="title" type="text"></p>
+<p>Content：<textarea name="content"></textarea></p>
+<p>Time：<textarea name="pub_date"></textarea></p>
+<p>Tag：<textarea name="tag"></textarea></p>
+<p><input type="submit">ok</p>-->
+<div class="">
+    <label for="id_title">标题：</label>
+    {{ form.title }}
+</div>
+<div class="">    
+    <label for="id_content">内容：</label>
+    {{ form.content }}
+</div>
+<div class="">    
+    <label for="id_tag">标签：</label>
+    {{ form.tag }}
+</div>
+</br>
+<!--{{form}}-->
+
+<input class="btn btn-success" type="submit" value="提交" />
+<a href="/"><input class="btn btn-warning" type="button" value="取消" /></a>
+
+</form>
+</div>
+{% endblock %}

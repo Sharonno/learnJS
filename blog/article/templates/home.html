@@ -1,0 +1,14 @@
+{% extends 'base_site.html' %}
+{% load staticfiles %}
+{% block title %} Home-Timer {% endblock %}
+{% block content%}
+<link rel="stylesheet" type="text/css" href="../../static/css/timeball.css">
+{% comment %}
+<script type="text/javascript" scr="{% static 'js/timeball.js'%}"></script>
+{% endcomment%}
+<script type="text/javascript" src="../../static/js/timeball.js"></script>
+
+
+<div id="screen"></div>
+{% endblock %}
+

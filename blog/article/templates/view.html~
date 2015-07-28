@@ -1,0 +1,28 @@
+{% extends 'base_site.html' %}
+{% load staticfiles %}
+{% block content %}
+<script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+<script src="{% static 'js/sliders.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+<style>
+  p.detail  {color:black;font-family:"Times New Roman";font-size:20px;}
+</style>
+<div class="article">
+    <h3>TITLE：<a href="{% url 'view' %}?aid={{ article.id }}">{{ article.title }}</a></h3>
+	  <p class='detail'>  {{ article.content }}   </p>
+    <h3>COMMENT</h3>    
+      {% for comment in comments %}
+      <p class='detail'> {{comment.detail}}  </p>
+  <hr>
+{% endfor %}
+</div>
+<div class="comment">
+<form action="{% url 'comment_add' %}" method="post">
+    {% csrf_token %}
+    <p>comment：<textarea name="detail"></textarea></p>
+    <input type="hidden" name="article_id" value="{{ article.aid }}" >
+    <p><input type="submit"></p>
+</form>
+    <a href="/article/list">BACK</a>
+<div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base_site.html'%}
+
+{% block title %}welcome welcome welcome{% endblock %}
+{% block content%}
+<h2>welcome {{username}} !</h2>
+<br>
+<a href="{%url 'logout'%}">退出</a>
+{% endblock %}

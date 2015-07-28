@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<form action="{% url 'add' %}" method="post">
+{% csrf_token %}
+<p>TITLE：<input name="title" type="text"></p>
+<p>CONTENT：<textarea name="content"></textarea></p>
+<p><input type="submit"></p>
+
+</form>
+{% endblock %}
