@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <title>jQuery Validation</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <form id="demoForm">
+    <fieldset>
+      <legend>Login</legend>
+      <p>
+        <label for="username">UserName:</label>
+        <input type="text" id="username" name="username"/>
+      </p>
+      <p>
+        <label for="password">PassWord:</label>
+        <input type="text" id="password" name="password"/>
+      </p>
+      <p>
+        <input type="submit" value="login"/>
+      </p>
+    </fieldset>
+
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/jquery-validate.js"></script>
+<script>
+  $(document).ready(function(){
+      $("#demoForm").validate({
+        rules:{
+          username:{
+            required:true,
+            minlength:2,
+            maxlength:10,
+          },
+          password:{
+            required:true,
+            minlength:2,
+            maxlength:16,
+          },
+        }
+        })
+      })
+</script>
+</body>
+</html>
+

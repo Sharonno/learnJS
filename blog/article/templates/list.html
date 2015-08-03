@@ -1,8 +1,10 @@
 {% extends 'base_site.html' %}
 {% load staticfiles %}   
+
 {% block content %}
 {{ form.media }}
 <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/static/css/base.css">
 <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
 <script src="{% static 'js/sliders.js' %}"></script>
 <script src="{% static 'js/script.js' %}"></script>
@@ -39,33 +41,29 @@ function del(aid) {
 }
 </script>
 
-<link rel="stylesheet" type="text/css" href="/static/css/base.css">
 <div class="article_head">
     <a href="{% url 'add'%}">Add A New Article</a>
 </div>
     {% for contact in contacts %}
-<div class="article">
-    <div class="media">
-
-           <!--<a href="javascript:void(0);" onclick="del({{contact.aid}})">X</a>-->
-        <ul>
-            <h3 >
-                <a href="{% url 'view' %}?aid={{ contact.aid }}">{{ contact.title }}
-            </a>
-            <a href="javascript:void(0);" onclick="del({{contact.aid}})"> <span class="glyphicon glyphicon-remove f_r"></span></a>
-        </h3>
-            <p class="panel-body">{{ contact.content|safe|truncatechars:200}}</p>
-        <p class="autor">
-            <span class="lm f_l"><a href="/article/list">{{ contact.tag }}</a></span>
-            <span class="lm f_l"><a href="/article/list"></a></span>
-            <span  id='time' class="dtime f_l">{{ contact.publish_date }}</span>
-            <span  class="viewnum f_r" >浏览（{{ contact.view_cnt }}）</span>
-            <span class="pingl f_r"><a href="{% url 'view' %}?aid={{ contact.aid }}">评论</a></span>
-        </p>
-    </ul>
+    <div class="article">
+        <div class="media">
+               <!--<a href="javascript:void(0);" onclick="del({{contact.aid}})">X</a>-->
+            <ul>
+                <h3 >
+                    <a href="{% url 'view' %}?aid={{ contact.aid }}">{{ contact.title }}</a>
+                    <a href="javascript:void(0);" onclick="del({{contact.aid}})"> <span class="glyphicon glyphicon-remove f_r"></span></a>
+                </h3>
+                <p class="panel-body">{{ contact.content|safe|truncatechars:200}}</p>
+                <p class="autor">
+                    <span class="lm f_l"><a href="/article/list">{{ contact.tag }}</a></span>
+                    <span class="lm f_l"><a href="/article/list"></a></span>
+                    <span  id='time' class="dtime f_l">{{ contact.publish_date }}</span>
+                    <span  class="viewnum f_r" >浏览（{{ contact.view_cnt }}）</span>
+                    <span class="pingl f_r"><a href="{% url 'view' %}?aid={{ contact.aid }}">评论</a></span>
+                </p>
+            </ul>
+        </div>
     </div>
-</div>
-
 {% endfor %}
 <div class="pagination">
     <span class="step-links">

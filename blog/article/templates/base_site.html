@@ -8,9 +8,17 @@
     <!--link rel="stylesheet" href="style.css" /-->
     <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
     <script src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
+    <!--<script src="{% static 'js/jqcloud/jqcloud.min.js' %}"></script>-->
+    <script src="{% static 'js/jqcloud/jqcloud.js' %}"></script>
+    <script src="{% static 'js/tab.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
 
+    <link rel="Stylesheet" type="text/css" href="{% static "css/loginDialog.css" %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static "css/base.css" %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.css" %}" />
+    <link rel="Stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+    <link rel="stylesheet" type="text/css" href="{% static "css/jqcloud.css" %}"/>
 
     <style type="text/css">
     body{color:#efd;background:#453;padding:0 5em;margin:0,height:100%;}
@@ -39,12 +47,23 @@
         }
 
 -->
-</script>
+      /*!
+         * Create an array of word objects, each representing a word in the cloud
+      */
+    var word_array = [
+          {text: "Lorem", weight: 15},
+          {text: "Ipsum", weight: 9, link: "http://jquery.com/"},
+          {text: "Dolor", weight: 6, html: {title: "I can haz any html attribute"}},
+          {text: "Sit", weight: 7},
+          {text: "Amet", weight: 5}
+  ];
 
-    <link rel="Stylesheet" type="text/css" href="{% static "css/loginDialog.css" %}" />
-    <link rel="Stylesheet" type="text/css" href="{% static "css/base.css" %}" />
-    <link rel="Stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.css" %}" />
-    <link rel="Stylesheet" type="text/css" href="{% static "bootstrap/css/bootstrap.min.css" %}" />
+//    $(function() {
+  //    $("#left-bar").jQCloud(word_array);
+ // });
+    </script>
+
+
     <title>{% block title %}My amazing site{% endblock %}</title>
 
   </head>
@@ -64,8 +83,11 @@
         </ul>
       </div>
 
-      <div id="content" name="content" style="height:90%;width:90%;" >
+      <div id="content" name="content" style="height:90%;width:55%;" >
         {% block content %}{% endblock %}
+      </div>
+      <div id="left-bar" name="left-bar" style="height:90%;width:25%;float:right">
+        {% block left-bar%}{% endblock %}
       </div>
       <div id="footer" >
         没吃饱只有一个烦恼，吃饱了就有无数个烦恼~>.<~
