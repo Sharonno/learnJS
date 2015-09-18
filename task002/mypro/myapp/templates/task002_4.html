@@ -1,0 +1,20 @@
+<! DOCTYPE html>
+{% load url from future%}
+{% load staticfiles %}
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="statics/js/jquery-1.11.3.min.js"></script>
+
+</head>
+<body>
+<div id="myDiv"><h2>Let AJAX change this text</h2></div>
+<button id="b01" type="button">Change Content</button>
+<h3>请在下面的输入框中键入字母（H orW）：</h3>
+<form action="" method="get" role="form"> 
+姓氏：<input type="text" id="search"/>
+</form>
+<p>建议：<span id="txtHint"></span></p> 
+<script type="text/javascript" src="statics/js/task002_4.js"></script>
+</body>
+</html>

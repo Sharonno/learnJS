@@ -1,0 +1,58 @@
+body {
+    font:14px/1.6 Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+    color:#333;
+    background:#eee;
+}
+li {
+    list-style: none;
+}
+.box {
+    margin: 0 auto;
+    width: 900px;
+    height: 352px;
+    position: relative;
+    overflow: hidden;
+    /*box-shadow: 5px 5px 5px #999;*/ 
+}
+
+.imgs {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    top: 100px;
+    width: 3600px;
+    height: 352px;
+    list-style: none;
+    z-index: 1;
+}
+
+.imgs li {
+    margin: 0;
+    padding: 0;
+    width: 900px;
+    height: 352px;
+    float: left;
+}
+
+.index {
+    position: absolute;
+    z-index: 2;
+    bottom: 1px;
+    left: 200px;
+}
+
+.index li {
+    float: left;
+    padding: 10px;
+    margin: 0 auto;
+    line-height: 2px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #eee;
+    color: #eee;
+}
+
+.index li:hover {
+    cursor: pointer;
+}
