@@ -7,7 +7,7 @@ import json
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-import json
+
 
 # Create your views here.
 def index(request):
@@ -16,12 +16,15 @@ def index(request):
 
 def search_ajax(request):
     q = request.GET.get('keywords', '')
-    #print q
-    if q == 'H':
-        s = '何'
-    elif q == 'W':
-        s = '王'
+    #s = []
+    if q == 'j':
+        s = ['java','javascript','jquery','json']
+        s = json.dumps(s)
+    elif q == 'w':
+        s = ['World','w3cschool','webqq','wx']
+        s = json.dumps(s)
     else:
-        s = ''
+        s = ['']
+        s = json.dumps(s)
           
     return HttpResponse(s)
