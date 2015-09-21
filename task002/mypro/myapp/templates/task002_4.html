@@ -5,16 +5,24 @@
 <head>
   <meta charset="UTF-8">
   <script type="text/javascript" src="statics/js/jquery-1.11.3.min.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="statics/css/task002_4.css">
 </head>
 <body>
-<div id="myDiv"><h2>Let AJAX change this text</h2></div>
-<button id="b01" type="button">Change Content</button>
-<h3>请在下面的输入框中键入字母（H orW）：</h3>
-<form action="" method="get" role="form"> 
-姓氏：<input type="text" id="search"/>
-</form>
-<p>建议：<span id="txtHint"></span></p> 
+<div class='content'>
+  <div class="search_box">
+    <div class='logo'></div>
+    <form class="search_form" action="">
+      <input type="text" class="search_txt">
+      <input type="button" class="search_btn">
+    </form>
+  </div>
+  <div class="hint">
+    <ul class="search_hint">
+    </ul>
+  </div>
+ 
+  
+</div>
 <script type="text/javascript" src="statics/js/task002_4.js"></script>
 </body>
 </html>
